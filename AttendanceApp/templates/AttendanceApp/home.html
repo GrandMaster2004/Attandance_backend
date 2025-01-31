@@ -1,0 +1,91 @@
+{% extends 'AttendanceApp/base.html' %} 
+{% block 'title' %}home.com {% endblock %} 
+{% block 'css' %}
+    
+{% endblock %}
+
+{% block 'content' %}
+
+<div class="container">
+  <!-- Title section -->
+   
+  <div class="title">Registration / <a href="{% url 'login_view' %}">Login</a></div>
+  <div class="content">
+    <!-- Registration form -->
+    <form action="{% url 'signup_view' %}" method="post">
+      {% csrf_token %}
+      <div class="user-details">
+        <!-- Input for Full Name -->
+        <div class="input-box">
+          <span class="details">Full Name</span>
+          <!-- <input type="text" placeholder="Enter your name" required> -->
+          {{ form.student_name}}
+        </div>
+        <!-- Input for Username -->
+        <div class="input-box">
+          <span class="details">Roll</span>
+          <!-- <input type="text" placeholder="Enter your username" required> -->
+          {{ form.roll_no}}
+        </div>
+        <!-- Input for Email -->
+        <div class="input-box">
+          <span class="details">Email</span>
+          <!-- <input type="text" placeholder="Enter your email" required> -->
+          {{ form.email}}
+        </div>
+        <!-- Input for Phone Number -->
+        <div class="input-box">
+          <span class="details">Phone Number</span>
+          <!-- <input type="text" placeholder="Enter your number" required> -->
+          {{ form.number}}
+        </div>
+        <div class="input-box">
+          <span class="details">Branch</span>
+          <!-- <input type="text" placeholder="Enter your number" required> -->
+          {{ form.branch}}
+        </div>
+        <div class="input-box">
+          <span class="details">DOB</span>
+          <!-- <input type="text" placeholder="Enter your number" required> -->
+          {{ form.dob}}
+        </div>
+        <div class="input-box">
+          <span class="details">Year</span>
+          <!-- <input type="text" placeholder="Enter your number" required> -->
+          {{ form.year}}
+        </div>
+        <!-- Input for Password -->
+        <div class="input-box">
+          <span class="details">Password</span>
+          {{form.password1}}
+          <!-- <input type="text" placeholder="Enter your password" required> -->
+        </div>
+        <!-- Input for Confirm Password -->
+        <div class="input-box">
+          <span class="details">Confirm Password</span>
+          {{form.password2}}
+          <!-- <input type="text" placeholder="Confirm your password" required> -->
+        </div>
+      </div>
+     
+      <!-- Submit button -->
+      <div class="button">
+        <input type="submit" value="Register">
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <a href="{% url 'login_view' %}">login</a>  -->
+<script>
+  document.getElementById("id_email").placeholder = "Enter your email";
+  document.getElementById("id_student_name").placeholder = "Enter your name";
+  document.getElementById("id_roll_no").placeholder = "Enter your roll";
+  document.getElementById("id_number").placeholder = "Enter your number";
+  document.getElementById("id_branch").placeholder = "Enter your branch";
+  document.getElementById("id_dob").placeholder = "Enter your dod";
+  document.getElementById("id_password1").placeholder = "Enter your password";
+  document.getElementById("id_password2").placeholder = "Confirm your password ";
+  document.getElementById("id_year").placeholder = "Enter your year";
+</script>
+{% endblock %}

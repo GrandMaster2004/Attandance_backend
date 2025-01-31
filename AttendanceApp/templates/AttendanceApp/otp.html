@@ -1,0 +1,26 @@
+{% extends 'AttendanceApp/base.html' %} 
+{% block 'title' %}home.com {% endblock %} 
+{% block 'content' %}
+
+<div class="container">
+  <!-- Title section -->
+  <div class="title">Otp verification</div>
+  <div class="content">
+    <!-- Registration form -->
+    <form action="{% url 'otp_verify' %}" method="post">
+      {% csrf_token %}
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">OTP</span>
+          <!-- <input type="text" placeholder="Enter your username" required> -->
+          <input type="text" placeholder="Enter your otp" name="otp" maxlength="4" required id="id_otp">
+        </div>
+      </div>
+      <!-- Submit button -->
+      <div class="button">
+        <input type="submit" value="Login">
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

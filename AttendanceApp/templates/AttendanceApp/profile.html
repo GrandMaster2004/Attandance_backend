@@ -1,0 +1,117 @@
+{% extends 'AttendanceApp/base.html' %} 
+{% block 'title' %}home.com {% endblock %} 
+{% block 'content' %}
+
+
+<div class="container">
+    <!-- Title section -->
+    <!-- <div class="title">Otp verification</div> -->
+    <div class="content">
+      <!-- Registration form -->
+      {% if not request.user.is_staff %}
+      <form action="{% url 'profile_view' %}" method="post">
+        <div class="title">Otp verification</div>
+        {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">OTP</span>
+            <input type="text" hidden value="{{ otp2}}" name="otp2" id="otp2">
+            <input type="text" placeholder="Enter your otp" maxlength="4" required name="otp1" id="otp1">
+          </div>
+        </div>
+        <!-- Submit button -->
+        <div class="button">
+          <input type="submit" value="Login">
+        </div>
+      </form>
+      {% endif %}
+    </div>
+
+    <div class="content">
+      {% if request.user.is_authenticated and request.user.is_staff and request.user.is_active and not request.user.is_superuser %}
+      <form action="{% url 'data_view' %}" method="post">
+          {% csrf_token %}
+          <div class="title">Give Your Today Attendance/ <a href="{% url 'logout_view' %}">Logout</a></div>
+          <input type="text" name="londitude" value="" id="londitude1" />
+          <input type="text" name="langitude" value="" id="langitude1" />
+          
+          <input type="text" name="name" value="{{request.user.student_name}}" hidden id="name">
+          <input type="text" name="branch" value="{{request.user.branch}}" hidden id="branch">
+          <input type="text" name="roll_no" value="{{request.user.roll_no}}" hidden id="roll_no">
+          <input type="text" name="year" value="{{request.user.year}}" hidden id="year">
+
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Subject Code</span>
+              <!-- <input type="text" placeholder="Enter your username" required> -->
+              <input type="text" placeholder="Enter your subject code" required name="subCode" id="subCode">
+            </div>
+            <div class="input-box">
+              <span class="details">Section</span>
+              <!-- <input type="text" placeholder="Enter your username" required> -->
+              <input type="text" placeholder="Enter your subject code" required name="sec" id="sec">
+            </div>
+    
+            <div class="input-box">
+              <span class="details">Otp</span>
+              <input type="text" placeholder="Enter otp" required name="otp" id="otp">
+              <!-- <input type="text" placeholder="Enter your password" required> -->
+            </div>
+        
+          </div>
+          <!-- Submit button -->
+          <div class="button">
+            <input type="submit" value="Login">
+          </div>
+      </form>
+      {% endif %}
+    </div>
+    <div class="content">
+      {% if request.user.is_superuser %}
+      <form action="{% url 'superUser' %}" method="post">
+          <div class="title">Take Today Attendance /  <a href="{% url 'logout_view' %}">Logout</a></div>
+          {% csrf_token %}
+          <input type="text" name="londitude" value="" id="londitude1" hidden/>
+          <input type="text" name="langitude" value="" id="langitude1" hidden/>
+          
+          <input type="text" name="name" value="{{request.user.student_name}}" hidden id="name">
+          <input type="text" name="branch" value="{{request.user.branch}}" hidden id="branch">
+          <input type="text" name="roll_no" value="{{request.user.roll_no}}" hidden id="roll_no">
+          <input type="text" name="year" value="{{request.user.year}}" hidden id="year">
+
+          <div class="user-details">
+    
+            <div class="input-box">
+              <span class="details">Branch</span>
+              <!-- <input type="text" placeholder="Enter your username" required> -->
+              <input type="text" placeholder="Enter your subject code" required name="branch" id="branch1">
+            </div>
+            <div class="input-box">
+              <span class="details">Section</span>
+              <!-- <input type="text" placeholder="Enter your username" required> -->
+              <input type="text" placeholder="Enter your section" required name="sec" id="sec1">
+            </div>
+            <div class="input-box">
+              <span class="details">Year</span>
+              <!-- <input type="text" placeholder="Enter your username" required> -->
+              <input type="text" placeholder="Enter your year" required name="year" id="year1">
+            </div>
+    
+            <div class="input-box">
+              <span class="details">Subject</span>
+              <input type="text" placeholder="Enter Subject name" required name="subCode" id="subCode1">
+              <!-- <input type="text" placeholder="Enter your password" required> -->
+            </div>
+        
+          </div>
+          <!-- Submit button -->
+          <div class="button">
+            <input type="submit" value="Submit">
+          </div>
+      </form>
+      {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

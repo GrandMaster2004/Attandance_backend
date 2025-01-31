@@ -1,0 +1,35 @@
+{% extends 'AttendanceApp/base.html' %} 
+{% block 'title' %}home.com {% endblock %} 
+{% block 'content' %}
+
+
+<div class="container">
+  <!-- Title section -->
+  <div class="title">Login / <a href="{% url 'signup_view' %}">Registration</a></div>
+  <div class="content">
+    <!-- Registration form -->
+    <form action="{% url 'login_view' %}" method="post">
+      {% csrf_token %}
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Roll</span>
+          <!-- <input type="text" placeholder="Enter your username" required> -->
+          <input type="text" placeholder="Enter your roll number" required name="roll_no">
+        </div>
+
+        <div class="input-box">
+          <span class="details">Password</span>
+          <input type="text" placeholder="Enter your password" required name="password">
+          <!-- <input type="text" placeholder="Enter your password" required> -->
+        </div>
+     
+      </div>
+      <!-- Submit button -->
+      <div class="button">
+        <input type="submit" value="Login">
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
