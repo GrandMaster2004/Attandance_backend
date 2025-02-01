@@ -24,16 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2^z!2u-!-cwzxr%5(wd*!g@1b!&f4w1)cdv-ghagki61ankxwv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 # CSRF_TRUSTED_ORIGIS = ['https://c98b-2409-40e3-3118-a2e3-5c37-81b6-45b1-7797.ngrok-free.app']
 CSRF_TRUSTED_ORIGINS = ['https://d4b8-2409-40e3-3118-a2e3-c56b-6522-5c57-55.ngrok-free.app']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne',
+    # 'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -61,6 +61,7 @@ GSHEETS = {
 AUTH_USER_MODEL = 'AttendanceApp.StudentsCustomUser'
 
 MIDDLEWARE = [
+     "whitenoise.runserver_nostatic",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -90,19 +91,34 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Attendance.wsgi.application'
-ASGI_APPLICATION = 'Attendance.asgi.application'
+# ASGI_APPLICATION = 'Attendance.asgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'koyebdb',
+        'USER': 'koyeb-adm',
+        'PASSWORD': 'npg_NoK40mUnkDsJ',
+        'HOST': 'ep-bold-breeze-a2axjd3b.eu-central-1.pg.koyeb.app',
+        'OPTIONS': {'sslmode': 'require'},
     }
 }
-
 # JWT Configuration
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -182,5 +198,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://localhost:5173",
-    # "http://localhost:5173"
+    "https://attandance-front-iu5dul8lj-yash-vardhans-projects-f9575301.vercel.app",
+    # '.vercel.app', 
+    # '.now.sh'
 ]
