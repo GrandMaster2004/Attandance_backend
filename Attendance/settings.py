@@ -16,7 +16,6 @@ CSRF_TRUSTED_ORIGINS = ['https://d4b8-2409-40e3-3118-a2e3-c56b-6522-5c57-55.ngro
 
 
 INSTALLED_APPS = [
-    # 'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -24,7 +23,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'AttendanceApp',
-    # 'gsheets',
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
@@ -147,8 +145,9 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+# STORAGES = {
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
+
