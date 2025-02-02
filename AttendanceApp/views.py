@@ -10,7 +10,7 @@ User = get_user_model()
 import random
 from django.urls import reverse
 import smtplib
-import time
+# import time
 from .models import subOtp,cseData,itData,eceData
 import pandas as pd
 from django.http import JsonResponse
