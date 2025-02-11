@@ -11,7 +11,7 @@ SECRET_KEY = 'django-insecure-2^z!2u-!-cwzxr%5(wd*!g@1b!&f4w1)cdv-ghagki61ankxwv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://attandance-backend.onrender.com"]
 CSRF_TRUSTED_ORIGINS = ['https://attandance-front-w1mo.vercel.app']
 
 
