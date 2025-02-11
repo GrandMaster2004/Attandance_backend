@@ -12,7 +12,7 @@ SECRET_KEY = 'django-insecure-2^z!2u-!-cwzxr%5(wd*!g@1b!&f4w1)cdv-ghagki61ankxwv
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://d4b8-2409-40e3-3118-a2e3-c56b-6522-5c57-55.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://d4b8-2409-40e3-3118-a2e3-c56b-6522-5c57-55.ngrok-free.app','https://attandance-front-w1mo.vercel.app']
 
 
 INSTALLED_APPS = [
@@ -141,7 +141,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://localhost:5173",
-    "https://attandance-front.vercel.app"
+    "https://attandance-front.vercel.app",
+
 ]
 
 
