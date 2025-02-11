@@ -13,7 +13,7 @@ import smtplib
 from .models import subOtp,cseData,itData,eceData
 import pandas as pd
 from django.http import JsonResponse
-from geopy.distance import geodesic
+# from geopy.distance import geodesic
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
