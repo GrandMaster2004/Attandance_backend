@@ -142,7 +142,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:5173",
     "https://attandance-front.vercel.app",
-
+    "https://attandance-front-w1mo-bdmywu5vk-yash-vardhans-projects-f9575301.vercel.app"
 ]
 
 
