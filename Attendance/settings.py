@@ -12,7 +12,7 @@ SECRET_KEY = 'django-insecure-2^z!2u-!-cwzxr%5(wd*!g@1b!&f4w1)cdv-ghagki61ankxwv
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://attandance-front-w1mo.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://attandance-front.onrender.com']
 
 
 INSTALLED_APPS = [
@@ -141,14 +141,5 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://localhost:5173",
-    "https://attandance-front.vercel.app",
-    "https://attandance-front-w1mo-bdmywu5vk-yash-vardhans-projects-f9575301.vercel.app"
+    "https://attandance-front.onrender.com",
 ]
-
-
-# STORAGES = {
-#     "staticfiles": {
-#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-#     },
-# }
-
